@@ -30,7 +30,8 @@ run Mol.Decrypter.py -e encrypted.bin -m MonomerToHexCodes.xlsx -t NAMEOFDECRYPT
 If this was the correct secret key the output will be:
 
 ```python
-Successfully Decrypted```
+Successfully Decrypted
+```
 
 If not, the program will print out:
 ```python
