@@ -131,6 +131,7 @@ def main():
     monomer_hex_assignment = args.monomer_hex_assignment
     LCMS_template = args.LCMS_template
 
+    
     # open and parse file to be decrypted
     encrypted_text = open(encrypted_file, "rb")
     nonce, tag, ciphertext = [encrypted_text.read(x) for x in (16, 16, -1)]
@@ -145,6 +146,7 @@ def main():
 
     ####### END READ IN HEX ASSIGNMENTS TO MONOMER MASSES ######
 
+    
     ####### END READ IN LCMS TEMPLATE WITH MASSES ######
     template_workbook = load_workbook(filename=(LCMS_template))
     LCMSsheet = template_workbook.active
@@ -162,6 +164,7 @@ def main():
     print("binary key:")
     print(padded_binary)
     print ()
+    
 
     key = binascii.unhexlify(encoded_bitstring)
     print(".bin format:")
