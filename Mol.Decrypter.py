@@ -26,13 +26,13 @@ def GetArgs():
     '''
     parser = argparse.ArgumentParser()
     parser.add_argument('-e', '--encryptedfile', metavar='\b',
-                        help="name of file to be decrypted", action="store", dest="encrypted_file")
+                        help="name of file to be decrypted", action="store", dest="encrypted_file", default="C:\\Github\\Mol.E-Crypter\\encrypted.bin")
     parser.add_argument('-m', '--monomerfile', metavar='\b',
-                        help="name of file with monomer to hex assignments", action="store", dest="monomer_hex_assignment")
+                        help="name of file with monomer to hex assignments", action="store", dest="monomer_hex_assignment", default="C:\\Github\\Mol.E-Crypter\\MonomerToHexCodes.xlsx")
     parser.add_argument('-t', '--template', metavar='\b',
-                        help="template containing monomer masses", action="store", dest="LCMS_template")
+                        help="template containing monomer masses", action="store", dest="LCMS_template", default="C:\\Github\\Mol.E-Crypter\\JimmyMasses.xlsx")
     args = parser.parse_args()
-
+    
     # Check if file exists
     if os.path.exists('{}'.format(args.encrypted_file)) is False:
         print('{}'.format(args.encrypted_file))
@@ -44,6 +44,7 @@ def GetArgs():
     if os.path.exists('{}'.format(args.LCMS_template)) is False:
         print('{}'.format(args.LCMS_template))
         raise FileNotFoundError('Cannot find {}'.format(args.LCMS_template))
+    
 
     return args
 
@@ -181,7 +182,8 @@ def main():
         decrypted_file = open("decrypted_file.txt", 'w+')
         decrypted_file.write(data)
         decrypted_file.close()
-        print("Successfully Decrypted")
+        print("Successfully Decrypted!")
+        
     except ValueError:
         print("Incorrect Key")
 
